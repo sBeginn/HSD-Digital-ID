@@ -17,10 +17,10 @@ Parameter inhalt; ist der Inhalt des QR-Codes
 Parameter name; ist der Name der erstellten png-Datei 
 """
 
-def make_qr(inhalt,
+def make_qr(content,
             name):
     qr = qrcode.QRCode()
-    qr.add_data(inhalt)
+    qr.add_data(content)
     img = qr.make_image()
     img.save(f"{qr_codes_folder}\\{name}.png")
     #img.show()

@@ -2,11 +2,11 @@
 
 Download and Install:
 
-git clone https://github.com/sBeginn/HSD-Digital-ID.git
+1. git clone https://github.com/sBeginn/HSD-Digital-ID.git
 
-cd HSD-Digital-ID
+2. cd HSD-Digital-ID
 
-pip install -r requirements.txt
+3. pip install -r requirements.txt
 
-streamlit run app.py
+4. streamlit run app.py
 

@@ -14,7 +14,9 @@ create_table_students = """CREATE TABLE IF NOT EXISTS students (
                             birthdate TEXT NOT NULL,
                             course TEXT NOT NULL,
                             valid_from TEXT NOT NULL,
-                            expired TEXT NOT NULL);"""
+                            expired TEXT NOT NULL,
+                            username TEXT NOT NULL,
+                            password TEXT NOT NULL);"""
 
 cursor.execute(create_table_students)
 print("Successfully created table students")
@@ -23,7 +25,7 @@ print("Successfully created table students")
 current_path = os.path.dirname(__file__)
 
 # Path from the text file
-file_path = f"{current_path[:-7]}Datasets\\student_dataset.txt"
+file_path = f"{current_path[:-14]}Datasets\\student_dataset.txt"
 
 # Open the text file
 with open(file_path, 'r') as f:
@@ -39,8 +41,8 @@ with open(file_path, 'r') as f:
       expired = data[6]
       
       # Insert data into table students
-      cursor.execute('''INSERT OR IGNORE INTO students(student_id, first_name, last_name, birthdate, course, valid_from, expired)
-                        VALUES (?, ?, ?, ?, ?, ?, ?)''', (student_id, first_name, last_name, birthdate, course, valid_from, expired))
+      cursor.execute('''INSERT OR IGNORE INTO students(student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''', (student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password))
 print("Successfully inserted data into database")
 
 # save the database

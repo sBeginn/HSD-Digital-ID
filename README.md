@@ -1,6 +1,7 @@
 # HSD-Digital-ID
 
-https://img.shields.io/github/last-commit/sBeginn/HSD-Digital-ID
+![license](https://img.shields.io/github/license/sBeginn/sBeginn/HSD-Digital-ID)
+![commit](https://img.shields.io/github/last-commit/sBeginn/HSD-Digital-ID)
 
 
 

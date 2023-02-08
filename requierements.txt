@@ -1,4 +1,0 @@
-streamlit
-streamlit_authenticator
-matplot
-streamlit-option-menu

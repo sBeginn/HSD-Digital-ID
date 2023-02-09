@@ -59,7 +59,7 @@ def main():
     st.image(image_hsd_logo)
     st.title("Digital ID")
 
-    menu = ["Home", "Login", "SignUp"]
+    menu = ["Home", "Login", "SignUp", "Scan"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Home":
@@ -125,7 +125,11 @@ def main():
             add_userdata(new_username, make_hashes(new_password))
             st.success("You have successfully created a valid Account")
             st.info("Go to Login Menu to login")
-
+    
+    elif choice == "Scan":
+        st.subheader("Qr Code Scanner")
+        st.camera_input("test")
+        
 
 if __name__ == '__main__':
     main()

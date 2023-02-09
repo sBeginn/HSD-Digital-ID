@@ -2,3 +2,8 @@ streamlit
 streamlit_authenticator
 matplot
 streamlit-option-menu
+qrcode
+pandas
+sqlite3
+cv2
+numpy

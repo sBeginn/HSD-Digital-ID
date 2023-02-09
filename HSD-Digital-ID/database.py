@@ -31,18 +31,19 @@ file_path = f"{current_path[:-14]}Datasets\\student_dataset.txt"
 with open(file_path, 'r') as f:
     # Processes text file 
     for line in f:
-      data = line.strip().split(',')
-      student_id = int(data[0])
-      first_name = data[1]
-      last_name = data[2]
-      birthdate = data[3]
-      course = data[4]
-      valid_from = data[5]
-      expired = data[6]
-      
-      # Insert data into table students
-      cursor.execute('''INSERT OR IGNORE INTO students(student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''', (student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password))
+        data = line.strip().split(',')
+        student_id = int(data[0])
+        first_name = data[1]
+        last_name = data[2]
+        birthdate = data[3]
+        course = data[4]
+        valid_from = data[5]
+        expired = data[6]
+
+        # Insert data into table students
+        cursor.execute('''INSERT OR IGNORE INTO students(student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password))
 print("Successfully inserted data into database")
 
 # save the database

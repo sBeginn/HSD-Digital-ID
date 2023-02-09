@@ -4,7 +4,8 @@ from PIL import Image
 import hashlib
 import sqlite3
 import os
-
+import numpy as np
+import cv2
 
 # Current Path
 current_path = os.path.dirname(__file__)
@@ -127,9 +128,32 @@ def main():
             st.info("Go to Login Menu to login")
     
     elif choice == "Scan":
-        st.subheader("Qr Code Scanner")
-        st.camera_input("test")
         
-
+        if "imageCaptured" not in st.session_state.keys():
+            st.session_state["imageCaptured"] = None
+        col1, col2, col3 = st.columns(3)
+            
+        with col1:
+            captureQrCode = st.camera_input("Qr Code scanner", help= "drücke auf Take Photo, wenn der Qr Code gut sichtbar ist")
+            
+            if captureQrCode:
+                st.session_state["imageCaptured"] = captureQrCode
+                
+        with col2:
+            st.write("Das Foto")
+            if st.session_state["imageCaptured"]:
+                st.image(st.session_state["imageCaptured"])
+        
+        with col3:
+            st.write("Die Nachricht des Qr codes")
+            
+            if st.session_state["imageCaptured"]:
+                img = Image.open(st.session_state["imageCaptured"])
+                openCvImage = np.array(img)
+                 
+                qrCodeDetector = cv2.QRCodeDetector()
+                data = qrCodeDetector.detectAndDecode(openCvImage)
+                st.write(data[0])
+                    
 if __name__ == '__main__':
     main()

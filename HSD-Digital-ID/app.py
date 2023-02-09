@@ -131,7 +131,7 @@ def main():
         
         if "imageCaptured" not in st.session_state.keys():
             st.session_state["imageCaptured"] = None
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
             
         with col1:
             captureQrCode = st.camera_input("Qr Code scanner", help= "drücke auf Take Photo, wenn der Qr Code gut sichtbar ist")
@@ -140,11 +140,6 @@ def main():
                 st.session_state["imageCaptured"] = captureQrCode
                 
         with col2:
-            st.write("Das Foto")
-            if st.session_state["imageCaptured"]:
-                st.image(st.session_state["imageCaptured"])
-        
-        with col3:
             st.write("Die Nachricht des Qr codes")
             
             if st.session_state["imageCaptured"]:

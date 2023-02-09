@@ -5,5 +5,5 @@ streamlit-option-menu
 qrcode
 pandas
 sqlite3
-cv2
+opencv-python
 numpy

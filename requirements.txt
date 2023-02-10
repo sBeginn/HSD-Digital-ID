@@ -4,6 +4,5 @@ matplot
 streamlit-option-menu
 qrcode
 pandas
-sqlite3
 opencv-python
 numpy

@@ -12,5 +12,3 @@ def test_database():
         # Checks if the database was created
         assert result is not None, "Database not created"
         
-        # Close and disconnect the database
-        connection.close()

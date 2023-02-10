@@ -39,6 +39,8 @@ with open(file_path, 'r') as f:
         course = data[4]
         valid_from = data[5]
         expired = data[6]
+        username = data[7]
+        password = data[8]
 
         # Insert data into table students
         cursor.execute('''INSERT OR IGNORE INTO students(student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password)

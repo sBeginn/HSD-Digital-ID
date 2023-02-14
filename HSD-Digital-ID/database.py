@@ -6,6 +6,7 @@ connection = sqlite3.connect("students.db")
 cursor = connection.cursor()
 print("Successfully connected to database")
 
+
 # Create table students
 create_table_students = """CREATE TABLE IF NOT EXISTS students (
                             student_id INT PRIMARY KEY,
@@ -45,6 +46,28 @@ with open(file_path, 'r') as f:
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                        (student_id, first_name, last_name, birthdate, course, valid_from, expired, username, password))
 print("Successfully inserted data into database")
+
+def get_conn():
+    conn = sqlite3.connect("students.db")
+    return conn
+
+def close_conn(conn):
+    conn.close()
+
+def execute_query(query):
+    conn = get_conn()
+    c = conn.cursor()
+    c.execute(query)
+    conn.commit()
+    close_conn(conn)
+
+def execute_query_fetchall(query):
+    conn = get_conn()
+    c = conn.cursor()
+    c.execute(query)
+    data = c.fetchall()
+    close_conn(conn)
+    return data
 
 # save the database
 connection.commit()

@@ -6,13 +6,14 @@ import sqlite3
 import os
 import numpy as np
 import cv2
+from qrcode_f import make_qr
+import time
 
 # Current Path
 current_path = os.path.dirname(__file__)
 
 # Images
 image_hsd_logo = Image.open(f'{current_path[:-14]}\\images\\hsd_logo.png')
-image_qr_code = Image.open(f'{current_path[:-14]}\\Datasets\\Qr_codes\\Test_code.png')
 
 
 # Change password to hash for security
@@ -39,6 +40,7 @@ def create_usertable():
 
 def add_userdata(username, password):
     c.execute('INSERT INTO login_data(username, password) VALUES (?,?)', (username, password))
+    make_qr(username, username)
     conn.commit()
 
 
@@ -80,7 +82,7 @@ def main():
 
                 st.success("Logged In as {}".format(username))
 
-                task = st.selectbox("What do you want?", ["Overview", "Matriculation certificate", "QR-Code"])
+                task = st.selectbox("What do you want?", ["QR-Code", "Matriculation certificate", "Overview"])
                
                 if task == "Overview":
                     st.subheader("Personal Information".format(username))
@@ -112,7 +114,9 @@ def main():
                     container_qr_code = st.container()
                     container_qr_code.write("Here is your personal QR-Code:") 
                     
+                    image_qr_code = Image.open(f'{current_path[:-14]}\\Datasets\\Qr_codes\\{username}.png')
                     st.image(image_qr_code)
+                    
             else:
                 st.warning("Incorrect Username/Password")
 
@@ -120,6 +124,7 @@ def main():
         st.subheader("Create New Account")
         new_username = st.text_input("Username")
         new_password = st.text_input("Password", type='password')
+    
 
         if st.button("Signup"):
             create_usertable()
@@ -149,6 +154,6 @@ def main():
                 qrCodeDetector = cv2.QRCodeDetector()
                 data = qrCodeDetector.detectAndDecode(openCvImage)
                 st.write(data[0])
-                    
+        
 if __name__ == '__main__':
     main()

@@ -8,7 +8,7 @@ Erst wird der Pfad des Scripts gespeichert, um durch diesen den Pfad zum Ordner,
 wo die Qr Codes gespeichert sind zu kriegen
 """
 current_path = os.path.dirname(__file__)
-qr_codes_folder = f"{current_path[:-7]}Datasets\\qr_codes"
+qr_codes_folder = f"{current_path[:-14]}Datasets\\qr_codes"
 
 
 """
@@ -24,9 +24,5 @@ def make_qr(content,
     img = qr.make_image()
     img.save(f"{qr_codes_folder}\\{name}.png")
     #img.show()
-
-
-make_qr("Test", "Test_code")
-
 
 

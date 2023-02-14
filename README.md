@@ -5,7 +5,7 @@
 
 In this project we digitalized our HSD-Id onto a Web application
 
-### Structure
+## Structure
 There are four areas on the Website: *Home, Login, SignUp and Scan.*
 
 **Home**: Will welcome you!

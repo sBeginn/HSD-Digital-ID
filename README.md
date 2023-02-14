@@ -15,5 +15,5 @@ Download and Install:
 
 Start:
 
-4. ```streamlit run app.py```
+4. ```streamlit run app.py``` / ```python -m streamlit run app.py```
 

@@ -9,8 +9,11 @@ In this project we digitalized our HSD-Id onto a Web application
 There are four areas on the Website: *Home, Login, SignUp and Scan.*
 
 **Home**: Will welcome you!
+
 **Login**: Here you can Login, once you have signed up.
+
 **SignUp**: Here you can create an Account.
+
 **Scan**:  Here you can Scan a Qr-Code and check whether someone is a member of HSD.
 
 Download and Install:

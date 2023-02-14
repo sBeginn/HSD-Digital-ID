@@ -16,6 +16,8 @@ There are four areas on the Website: *Home, Login, SignUp and Scan.*
 
 **Scan**:  Here you can Scan a Qr-Code and check whether someone is a member of HSD.
 
+
+
 Download and Install:
 
 1. ```git clone https://github.com/sBeginn/HSD-Digital-ID.git```
